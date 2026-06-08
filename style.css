@@ -1,0 +1,161 @@
+import random
+import time
+
+class PlantacaoTrigo:
+    def __init__(self):
+        self.esttagio = "Semente"
+        self.dias = 0
+        self.agua = 50  # Porcentagem inicial de umidade do solo
+        self.vivo = True
+
+    def regar(self):
+        if not self.vivo:
+            return
+        self.agua = min(100, self.agua + 25)
+        print("💧 Você regou o trigo! A umidade do solo subiu.")
+
+    def atualizar_dia(self):
+        self.dias += 1
+        # O sol consome água todos os dias de forma aleatória
+        self.agua -= random.randint(10, 25)
+
+        # Verifica a saúde da planta
+        if self.agua <= 0:
+            self.vivo = False
+            print("💀 Ah não! O solo secou completamente e o trigo morreu.")
+            return
+        elif self.agua > 90:
+            print("⚠️ Cuidado! O solo está encharcado demais.")
+
+        # Evolução dos estágios baseado nos dias
+        if self.dias == 3:
+            self.estagio = "Broto"
+            print("🌱 Olha só! Os primeiros brotos de trigo estão surgindo.")
+        elif self.dias == 7:
+            self.estagio = "Crescimento"
+            print("🌾 O trigo está crescendo forte e esverdeado!")
+        elif self.dias == 12:
+            self.estagio = "Pronto para Colheita"
+            print("🚜 O campo mudou de cor! O trigo está dourado e pronto para colher!")
+
+    def colher(self):
+        if self.estagio == "Pronto para Colheita":
+            print("🎉 Parabéns! Você realizou a colheita com sucesso e garantiu trigo de ótima qualidade!")
+        else:
+            print(f"❌ Ainda não dá para colher. O trigo está no estágio: {self.estagio}.")
+
+# --- Execução do Simulador ---
+fazenda = PlantacaoTrigo()
+print("🚜 Bem-vindo ao Simulador de Plantação de Trigo! 🚜")
+
+while fazenda.vivo and fazenda.estagio != "Pronto para Colheita":
+    print(f"\n--- Dia {fazenda.dias} ---")
+    print(f"Estágio atual: **{fazenda.estagio}**")
+    print(f"Umidade do solo: **{fazenda.agua}%**")
+    
+    acao = input("O que você quer fazer? (1: Regar | 2: Avançar o dia): ").strip()
+    
+    if acao == "1":
+        fazenda.regar()
+    elif acao == "2":
+        fazenda.atualizar_dia()
+    else:
+        print("Opção inválida! Escolha 1 ou 2.")
+    time.sleep(0.5)
+
+# Fim do jogo
+if fazenda.vivo and fazenda.estagio == "Pronto para Colheita":
+    print("\n--- FIM DO CICLO ---")
+    fazenda.colher()import random
+import time
+
+class PlantacaoTrigo:
+    def __init__(self):
+        self.estagio = "Semente"
+        self.dias = 0
+        self.agua = 50  # Porcentagem inicial de umidade do solo
+        self.vivo = True
+
+    def regar(self):
+        if not self.vivo:
+            return
+        self.agua = min(100, self.agua + 25)
+        print("💧 Você regou o trigo! A umidade do solo subiu.")
+
+    def atualizar_dia(self):
+        self.dias += 1
+        # O sol consome água todos os dias de forma aleatória
+        self.agua -= random.randint(10, 25)
+
+        # Verifica a saúde da planta
+        if self.agua <= 0:
+            self.vivo = False
+            print("💀 Ah não! O solo secou completamente e o trigo morreu.")
+            return
+        elif self.agua > 90:
+            print("⚠️ Cuidado! O solo está encharcado demais.")
+
+        # Evolução dos estágios baseado nos dias
+        if self.dias == 3:
+            self.estagio = "Broto"
+            print("🌱 Olha só! Os primeiros brotos de trigo estão surgindo.")
+        elif self.dias == 7:
+            self.estagio = "Crescimento"
+            print("🌾 O trigo está crescendo forte e esverdeado!")
+        elif self.dias == 12:
+            self.estagio = "Pronto para Colheita"
+            print("🚜 O campo mudou de cor! O trigo está dourado e pronto para colher!")
+
+    def colher(self):
+        if self.estagio == "Pronto para Colheita":
+            print("🎉 Parabéns! Você realizou a colheita com sucesso e garantiu trigo de ótima qualidade!")
+        else:
+            print(f"❌ Ainda não dá para colher. O trigo está no estágio: {self.estagio}.")
+
+# --- Execução do Simulador ---
+fazenda = PlantacaoTrigo()
+print("🚜 Bem-vindo ao Simulador de Plantação de Trigo! 🚜")
+
+while fazenda.vivo and fazenda.estagio != "Pronto para Colheita":
+    print(f"\n--- Dia {fazenda.dias} ---")
+    print(f"Estágio atual: **{fazenda.estagio}**")
+    print(f"Umidade do solo: **{fazenda.agua}%**")
+    
+    acao = input("O que você quer fazer? (1: Regar | 2: Avançar o dia): ").strip()
+    
+    if acao == "1":
+        fazenda.regar()
+    elif acao == "2":
+        fazenda.atualizar_dia()
+    else:
+        print("Opção inválida! Escolha 1 ou 2.")
+    time.sleep(0.5)
+
+# Fim do jogo
+if fazenda.vivo and fazenda.estagio == "Pronto para Colheita":
+    print("\n--- FIM DO CICLO ---")
+    fazenda.colher()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
